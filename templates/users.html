@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>All Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <p align="center"><a href='/'>Home</a></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First_name</th>
+                <th scope="col">Last_name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Created_at</th>
+                <th scope="col">Edit</th>
+              </tr>
+            {% for x in users %}
+            <tr>
+                <td>{{x["id"]}}</td>
+                <td>{{x["first_name"]}}</td>
+                <td>{{x["last_name"]}}</td>
+                <td>{{x["email"]}}</td>
+                <td>{{x["created_at"]}}</td>
+                <td><a href='/users/show/{{x["id"]}}'>Show</a> | <a href='/users/edit/{{x["id"]}}'>Edit</a> | <a href='/users/delete/{{x["id"]}}'>Delete</a></td>
+                <td></td>   
+            </tr>
+            {% endfor %}
+        </thead>
+    </table>
+    <p align="center"><a href='/users/new'>Add New User</a></p>
+</body>
+</html>
